@@ -32,6 +32,7 @@ A personal academic website designed as a book you read from cover to cover.
 - All text is in `index.html`. Each `<section class="page">` is one page; pages alternate right-hand (even) and left-hand (odd).
 - Keep the total number of pages **even** so the back cover lands on the left.
 - Photos are in `assets/img/` (metadata already stripped). The CV download is `assets/docs/Gurpreet_Singh_CV.pdf`.
+- When you change `book.css` or `book.js`, bump the `?v=` number on their links in `index.html` so returning visitors don't keep an old cached copy.
 - After editing, open `index.html?check` in a browser: the tab title says `CHECK OK` or lists any page whose text no longer fits.
 
 Text current as of November 2026.
