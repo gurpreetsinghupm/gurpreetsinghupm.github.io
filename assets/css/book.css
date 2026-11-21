@@ -42,7 +42,7 @@ a:hover{border-bottom-color:var(--accent)}
 img{display:block;max-width:100%}
 
 /* ---------- scene & scaling ---------- */
-.scene{position:fixed;inset:0 0 64px 0;display:flex;align-items:center;justify-content:center;perspective:2600px}
+.scene{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;perspective:2600px}
 .stage{
   width:calc(var(--pw) * 2);height:var(--ph);
   transform:scale(var(--s));transform-origin:center center;
@@ -288,7 +288,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offse
 .progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold-2),var(--gold));transition:width .5s}
 
 .hint{
-  position:fixed;left:50%;bottom:70px;transform:translateX(-50%);z-index:21;white-space:nowrap;
+  position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:21;white-space:nowrap;
   background:rgba(20,18,16,.8);color:#e7dcc4;border:1px solid rgba(209,176,106,.3);border-radius:999px;
   padding:7px 16px;font-family:var(--serif-display);font-size:14px;letter-spacing:.04em;transition:opacity .8s;
 }
@@ -299,7 +299,6 @@ kbd{font-family:var(--serif);font-size:12px;border:1px solid rgba(209,176,106,.5
   .controls{gap:2px;padding:5px 6px;bottom:10px}
   #counter{min-width:84px;font-size:13px}
   .controls .text-btn{padding:0 8px;font-size:11px;letter-spacing:.12em}
-  .scene{bottom:56px}
 }
 
 /* ---------- no-JS / print: a plain stack of pages ---------- */

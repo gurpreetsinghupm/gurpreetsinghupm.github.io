@@ -145,16 +145,16 @@
         label = 'pp. ' + l + ' – ' + r;
         visible = [l, r];
       }
-      prevBtn.disabled = flipped === 0;
-      nextBtn.disabled = flipped === L;
+      if (prevBtn) prevBtn.disabled = flipped === 0;
+      if (nextBtn) nextBtn.disabled = flipped === L;
       setInert(visible);
     } else {
       label = cur === 0 ? 'Cover' : (cur === N - 1 ? 'Back cover' : 'p. ' + cur + ' of ' + (N - 2));
-      prevBtn.disabled = cur === 0;
-      nextBtn.disabled = cur === N - 1;
+      if (prevBtn) prevBtn.disabled = cur === 0;
+      if (nextBtn) nextBtn.disabled = cur === N - 1;
       setInert([cur]);
     }
-    counter.textContent = label;
+    if (counter) counter.textContent = label;
     progress.style.width = (100 * p / (N - 1)) + '%';
     var id = pages[p] && pages[p].id ? pages[p].id : 'page-' + p;
     if (history.replaceState) history.replaceState(null, '', p === 0 ? location.pathname + location.search : '#' + id);
@@ -180,9 +180,10 @@
     dismissHint();
   }
 
-  prevBtn.addEventListener('click', prev);
-  nextBtn.addEventListener('click', next);
-  document.getElementById('toContents').addEventListener('click', function () { go(idIndex.contents); });
+  if (prevBtn) prevBtn.addEventListener('click', prev);
+  if (nextBtn) nextBtn.addEventListener('click', next);
+  var toContents = document.getElementById('toContents');
+  if (toContents) toContents.addEventListener('click', function () { go(idIndex.contents); });
 
   document.addEventListener('keydown', function (e) {
     if (e.altKey || e.ctrlKey || e.metaKey) return;
@@ -237,8 +238,8 @@
       requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.remove('no-anim'); }); });
     }
     var bw = mode === 'spread' ? 2 * PW : PW;
-    var padX = mode === 'spread' ? 120 : 20;
-    var padY = mode === 'spread' ? 110 : 90;
+    var padX = mode === 'spread' ? 80 : 16;
+    var padY = mode === 'spread' ? 44 : 24;
     var s = Math.min((vw - padX) / bw, (vh - padY) / PH, mode === 'spread' ? 1.4 : 1.7);
     stage.style.setProperty('--s', String(Math.max(0.3, s)));
   }
